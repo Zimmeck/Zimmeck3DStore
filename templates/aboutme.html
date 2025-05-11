@@ -1,0 +1,27 @@
+{% extends 'base.html' %}<!-- Heredamos de la platilla base.html asi como el titulo -->
+
+{% block title %} Sobre mí - Zimmeck3D {% endblock %}<!-- Sustituimos el title por Zimmeck3D -->
+
+{% block content %}<!--Sustituimos el contento por lo que escribamos -->
+
+<section class="about-section">
+
+    <h1>Sobre mí</h1>
+
+    <div class="about-content">
+        <img src="{{ url_for('static', filename='img/usuario-amarillo.png') }}" alt="Foto de perfil" class="about-img"
+
+        <div class="about-text">
+            <p>¡Hola! Soy Zimmeck, creador de piezas en 3D, apasionado por el modelado, la animación y el diseño visual.
+               Este sitio es una galería y un diario de mi trabajo, donde comparto mis creaciones, ideas y procesos creativos.</p>
+
+            <p>Me encanta fusionar estilos de anime, cine y cultura pop con el modelado digital, y cada pieza que ves aquí
+               ha sido hecha con mucha dedicación y detalle.</p>
+
+            <p>Gracias por visitar mi tienda/galería. ¡Espero que disfrutes tu recorrido!</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+<!-- Cierre del bloque de contenido que será insertado en base.html -->

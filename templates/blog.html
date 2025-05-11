@@ -1,0 +1,77 @@
+{% extends 'base.html' %}<!-- Heredamos de la platilla base.html asi como el titulo -->
+
+{% block title %} Blog - Zimmeck3D {% endblock %}<!-- Sustituimos el title por Zimmeck3D -->
+
+{% block content %}<!--Sustituimos el contento por lo que escribamos -->
+
+<h2 class="blog-title">Blog</h2>
+
+<h3 class="subtitle">Post</h3>
+<h3 class="subtitle">Instagram</h3>
+
+<div class="slider">
+  <!-- Slider de publicaciones de Instagram -->
+  <div class="slide">
+    <p class="post-date">02/04/2025</p>
+    <img src="{{ url_for('static', filename='img/usuario-amarillo.png') }}" alt="Post 1">
+    <p class="post-description">–"Descripción"</p>
+  </div>
+  <div class="slide">
+    <p class="post-date">01/04/2025</p>
+    <img src="{{ url_for('static', filename='img/usuario-amarillo.png') }}" alt="Post 2">
+    <p class="post-description">One Piece</p>
+  </div>
+  <div class="slide">
+    <p class="post-date">31/03/2025</p>
+    <img src="{{ url_for('static', filename='img/usuario-amarillo.png') }}" alt="Post 3">
+    <p class="post-description">Kimetsu no Yaiba</p>
+  </div>
+  <div class="slide">
+    <p class="post-date">30/03/2025</p>
+    <img src="{{ url_for('static', filename='img/usuario-amarillo.png') }}" alt="Post 4">
+    <p class="post-description">Haikyuu</p>
+  </div>
+  <div class="slide">
+    <p class="post-date">29/03/2025</p>
+    <img src="{{ url_for('static', filename='img/usuario-amarillo.png') }}" alt="Post 5">
+    <p class="post-description">Death Note</p>
+  </div>
+</div>
+
+<!-- Sección de publicaciones del diario personal -->
+<h3 class="subtitle">Diario</h3>
+
+<div class="slider">
+  <div class="slide">
+    <p class="post-date">02/04/2025</p>
+    <img src="{{ url_for('static', filename='img/usuario-amarillo.png') }}" alt="Diario 1">
+    <p class="post-description">Hoy he terminado esta pieza</p>
+  </div>
+  <div class="slide">
+    <p class="post-date">01/04/2025</p>
+    <img src="{{ url_for('static', filename='img/usuario-amarillo.png') }}" alt="Diario 2">
+    <p class="post-description">Hoy he terminado esta pieza</p>
+  </div>
+  <div class="slide">
+    <p class="post-date">31/03/2025</p>
+    <img src="{{ url_for('static', filename='img/usuario-amarillo.png') }}" alt="Diario 3">
+    <p class="post-description">Hoy he terminado esta pieza</p>
+  </div>
+  <div class="slide">
+    <p class="post-date">31/03/2025</p>
+    <img src="{{ url_for('static', filename='img/usuario-amarillo.png') }}" alt="Diario 4">
+    <p class="post-description">Hoy he terminado esta pieza</p>
+  </div>
+</div>
+
+<div style="text-align: center; margin: 40px 0;">
+  <!-- Botón para publicar algo nuevo (redirige a /posts) -->
+  <a href="{{ url_for('posts') }}">
+    <button class="add-product-button">Publicar</button>
+  </a>
+</div>
+
+<!-- Enlace al script que da funcionalidad al slider -->
+<script src="{{ url_for('static', filename='js/slider.js') }}"></script>
+{% endblock %}
+<!-- Cierre del bloque de contenido que será insertado en base.html -->

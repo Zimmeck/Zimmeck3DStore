@@ -1,0 +1,59 @@
+<footer class="footer">
+  <!-- Contenedor principal del contenido del footer -->
+  <div class="footer-content">
+
+    <!-- Sección de descripcion de la tienda -->
+    <div class="footer-section">
+      <h4>Zimmeck3D</h4>
+      <p>Impresiones 3D personalizadas de tus personajes y props favoritos.</p>
+    </div>
+
+    <!-- Sección de enlaces de la pagina -->
+    <div class="footer-section">
+      <h4>Enlaces rápidos</h4>
+      <a href="{{url_for('home')}}">Inicio</a>
+      <a href="{{url_for('categories')}}">Últimas Novedades</a>
+      <a href="{{url_for('comission')}}">Encargos</a>
+      <a href="{{url_for('blog')}}">Blog</a>
+    </div>
+
+    <!-- Sección de información de contacto -->
+    <div class="footer-section">
+      <h4>Contacto</h4>
+      <p>Email: zimmeck_cosplays@gmail.es</p>
+      <p>Tel: +34 678652370</p>
+      <p>Ubicación: Mallorca, España</p>
+    </div>
+
+    <!-- Sección de suscripción al boletín -->
+    <div class="footer-section">
+      <h4>Suscríbete</h4>
+      <p>Entérate de las últimas novedades y recibe ofertas exclusivas</p>
+      <input type="email" placeholder="Introduce tu email..." class="subscribe-input">
+      <button class="subscribe-button">Suscribirse</button>
+    </div>
+
+  </div>
+
+  <!-- Parte inferior del footer con enlaces legales y selector de idioma (no hacen nada actualmente -->
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="#">Aviso legal</a>
+      <a href="#">Política de privacidad</a>
+      <a href="#">Cookies</a>
+    </div>
+
+    <!-- Selector de idioma y moneda -->
+    <div class="footer-language">
+      <select>
+        <option>España / EUR</option>
+        <option>English / USD</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Línea final con derechos de autor -->
+  <div class="footer-copy">
+    &copy; 2025 Zimmeck3D. Todos los derechos reservados.
+  </div>
+</footer>

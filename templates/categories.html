@@ -1,0 +1,46 @@
+{% extends 'Base.html' %}<!-- Heredamos de la platilla base.html asi como el titulo -->
+
+{% block title %}Categorias-Zimmeck3D{% endblock %}<!-- Sustituimos el title por Zimmeck3D -->
+
+{% block content %}<!--Sustituimos el contento por lo que escribamos -->
+
+<h2>Categorías</h2>
+
+<h3 class="subtitle">Anime</h3>
+<div class="slider">
+  <!-- Cada <a> representa una categoría, con fondo como imagen del anime/pelicula -->
+  <a href="{{ url_for('show_category', name='naruto') }}" class="slide-image"
+     style="background-image: url('{{ url_for('static', filename='img/NarutoCard.jpg') }}');">
+    <span>Naruto</span>
+  </a>
+  <a href="{{ url_for('show_category', name='one-piece') }}" class="slide-image"
+     style="background-image: url('{{ url_for('static', filename='img/OnePieceCard.jpg') }}');">
+    <span>One Piece</span>
+  </a>
+</div>
+
+<h3 class="subtitle">Películas</h3>
+<div class="slider">
+  <a href="{{ url_for('show_category', name='300') }}" class="slide-image"
+     style="background-image: url('{{ url_for('static', filename='img/300Card.png') }}');">
+    <span>300</span>
+  </a>
+  <a href="{{ url_for('show_category', name='lotr') }}" class="slide-image"
+     style="background-image: url('{{ url_for('static', filename='img/LOTRCard.png') }}');">
+    <span>LOTR</span>
+  </a>
+  <a href="{{ url_for('show_category', name='star-wars') }}" class="slide-image"
+     style="background-image: url('{{ url_for('static', filename='img/starwarsCard.jpg') }}');">
+    <span>Star Wars</span>
+  </a>
+</div>
+
+<!-- Botón centrado para agregar un nuevo producto -->
+<div style="text-align: center; margin-top: 40px;">
+  <a href="{{ url_for('agregar_producto') }}" class="add-product-button">Agregar Nuevo Producto</a>
+</div>
+
+<!-- Script para el control del slider -->
+<script src="{{ url_for('static', filename='js/slider.js') }}"></script>
+
+{% endblock %}

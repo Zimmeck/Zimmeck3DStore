@@ -1,0 +1,50 @@
+{% extends 'Base.html' %}<!-- Heredamos de la platilla base.html asi como el titulo -->
+
+{% block title %}Agregar Producto - Zimmeck3D{% endblock %}<!-- Sustituimos el title por Zimmeck3D -->
+
+{% block content %}<!--Sustituimos el contento por lo que escribamos -->
+<body>
+  <!-- Contenedor principal para centrar y dar estilo al formulario -->
+  <div class="form-container">
+
+    <!-- Contenedor del formulario -->
+    <div class="form-card">
+      <h2>Agregar Nuevo Producto</h2>
+
+      <!-- Formulario que envía los datos a agregar producto usando el metodo POST -->
+      <form action="{{ url_for('agregar_producto') }}" method="POST">
+
+        <!-- Campo de texto para el nombre del producto -->
+        <label for="nombre">Nombre del producto</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre del producto" required>
+
+        <!-- Campo de texto para la descripción del producto -->
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" name="descripcion" placeholder="Descripción del producto" rows="4" required></textarea>
+
+        <!-- Campo para indicar el precio del producto -->
+        <label for="precio">Precio (€)</label>
+        <input type="number" id="precio" name="precio" placeholder="Precio" step="0.01" min="0" required>
+
+        <!-- Menú desplegable para seleccionar la categoría -->
+        <label for="categoria">Categoría</label>
+        <select id="categoria" name="categoria" required>
+          {% for categoria in categorias %}
+            <!-- Cada opción tiene como valor el id_filtro y muestra el nombre_filtro -->
+            <option value="{{ categoria.id_filtro }}">{{ categoria.nombre_filtro }}</option>
+          {% endfor %}
+        </select>
+
+        <!-- Campo de texto donde el usuario debe escribir la ruta de la imagen -->
+        <label for="imagen">Ruta de la imagen</label>
+        <input type="text" id="imagen" name="imagen" placeholder="img/productos/ejemplo.png" required>
+
+        <!-- Botón para enviar el formulario -->
+        <button type="submit">Agregar Producto</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+{% endblock %}
+<!-- Cierre del bloque de contenido que será insertado en base.html -->

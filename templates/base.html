@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Título dinámico que puede ser reemplazado en cada página que extienda esta plantilla -->
+    <title>{% block title %} Zimmeck3D {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Enlaces a todos los archivos CSS para el resto de partes -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='comission.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='posts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='categories.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='carrito.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='blog.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='aboutme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='producto.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='producto_detalle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='agregar_producto.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='flash.css') }}">
+</head>
+
+<body>
+
+<!-- Mensajes de flash -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<!-- Incluir el encabezado común para todas las páginas -->
+{% include 'Header.html' %}
+
+<!-- Contenedor principal de contenido dinámico definido por otras plantillas -->
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<script>
+    // Habilita el scroll vertical brevemente cuando se detecta movimiento del ratón
+    let timer;
+    window.addEventListener('wheel', () => {
+      document.body.style.overflowY = 'scroll';
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        document.body.style.overflowY = 'hidden';
+      }, 1000);
+    });
+
+    // Elimina los mensajes flash automáticamente después de 4 segundos
+    setTimeout(() => {
+      const flashes = document.querySelectorAll('.flash');
+      flashes.forEach(flash => {
+        flash.style.opacity = '0';
+        setTimeout(() => flash.remove(), 500);
+      });
+    }, 4000);
+</script>
+
+<!-- Incluye el footer comun para todas las paginas  -->
+{% include 'footer.html' %}
+</body>
+</html>

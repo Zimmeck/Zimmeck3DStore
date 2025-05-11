@@ -1,0 +1,47 @@
+{% extends 'base.html' %}<!-- Heredamos de la platilla base.html asi como el titulo -->
+
+{% block title %} {{ category_title }} - Zimmeck3D {% endblock %}<!-- Sustituimos el title por Zimmeck3D y llamamos a la variable category title para que cambie segun la pagina de categoria -->
+
+{% block content %}<!--Sustituimos el contento por lo que escribamos -->
+
+<section class="category-section">
+    <!-- Título dinámico de la categoría -->
+    <h1 class="category-title">{{ category_title }}</h1>
+
+    <!-- Contenedor deslizable de productos -->
+    <div class="slider">
+        {% for product in products %}
+            <!-- Cada producto representado como una "slide" -->
+            <div class="slide">
+                <p class="product-date">{{ product.fecha_creacion }}</p>
+
+                <!-- Enlace al producto en concreto -->
+                <a href="{{ url_for('mostrar_producto', categoria=category_title|lower, nombre_producto=product.nombre_producto) }}">
+                    {% if product.imagen_url_producto %}
+                        <!-- Si el producto tiene imagen, se muestra -->
+                        <img src="{{ url_for('static', filename=product.imagen_url_producto) }}" alt="{{ product.nombre_producto }}">
+                    {% else %}
+                        <!-- Imagen por defecto si no hay imagen asignada -->
+                        <img src="{{ url_for('static', filename='img/default-product.png') }}" alt="Sin imagen">
+                    {% endif %}
+                </a>
+
+                <p class="product-name">{{ product.nombre_producto }}</p>
+                <p class="product-price">{{ product.precio }} €</p>
+
+                <!-- Formulario para añadir el producto al carrito -->
+                <form action="{{ url_for('agregar_carrito') }}" method="post">
+                  <input type="hidden" name="id_producto" value="{{ product.id_producto }}">
+                  <button type="submit" class="cart-button styled-cart-button">
+                        Añadir al carrito
+                  </button>
+               </form>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Script para el control del slider -->
+<script src="{{ url_for('static', filename='js/slider.js') }}"></script>
+{% endblock %}
+<!-- Cierre del bloque de contenido que será insertado en base.html -->

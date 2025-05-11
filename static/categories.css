@@ -1,0 +1,117 @@
+.slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+  scroll-behavior: smooth;
+  cursor: grab;
+  user-select: none;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+.slide-image {
+  position: relative;
+  min-width: 180px;
+  height: 120px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-decoration: none;
+  margin-right: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.slide-image span {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 8px 12px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  width: 100%;
+  text-align: center;
+}
+
+.slide-image:hover {
+  transform: scale(1.05);
+}
+
+
+h2 {
+  padding: 20px;
+  color: #f4c215;
+  margin-left: 0px;
+  font-size: 26px;
+}
+.subtitle {
+  padding: 0 20px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: #f9500e;
+  font-size: 22px;
+}
+.elegant-button {
+  background-color: #f4c215;;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  margin-bottom:50px
+}
+
+.elegant-button:hover {
+  background-color: #d8420c;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+.add-product-button {
+  display: inline-block;
+  background: #f4c215;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 60px;
+  text-decoration: none; /* Elimina subrayado */
+  font-size: 16px;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.add-product-button:hover {
+  background: #f9500e;
+}
+.styled-cart-button {
+  background: linear-gradient(135deg, #f4c215, #f9db4a);
+  color: #222;
+  font-weight: bold;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.styled-cart-button:hover {
+  background: linear-gradient(135deg, #e0b813, #f1c40f);
+  transform: translateY(-2px) scale(1.03);
+  color: #111;
+}
+
+

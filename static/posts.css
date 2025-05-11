@@ -1,0 +1,58 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.public-form {
+  max-width: 300px;
+}
+
+.public-form h2 {
+  color: #f4c215;
+  margin-bottom: 20px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.public-form label {
+  display: block;
+  font-weight: 600;
+  color: #f4c215;
+  margin-bottom: 5px;
+}
+
+.public-form input[type="text"],
+.public-form input[type="date"],
+.public-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
+.public-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.public-form input[type="file"] {
+  margin-bottom: 15px;
+}
+
+.public-form button {
+  background: #f4c215;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+.public-form button:hover {
+  background: #f9500e;
+}

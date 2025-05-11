@@ -1,0 +1,33 @@
+{% extends 'Base.html' %}<!-- Heredamos de la platilla base.html asi como el titulo -->
+
+{% block title %} Diario-Zimmeck3D {% endblock %}<!-- Sustituimos el title por Zimmeck3D -->
+
+{% block content %}<!--Sustituimos el contento por lo que escribamos -->
+
+<div class="form-container">
+
+  <!-- Formulario para crear una nueva publicación usamos post para enviar la informacion (aqui aun no hace nada pero lo dejamos preparado para un futuro)-->
+  <form class="public-form" action="{{ url_for('posts') }}" method="post" enctype="multipart/form-data">
+    <h2>Publicación</h2>
+
+    <label for="title">Título</label>
+    <input type="text" id="title" placeholder="Título">
+
+    <!-- Campo para seleccionar una fecha -->
+    <label for="date">Fecha</label>
+    <input type="date" id="date">
+
+    <!-- Área de texto para la descripción de la publicación -->
+    <label for="description">Descripción</label>
+    <textarea id="description" placeholder="Descripción" rows="5"></textarea>
+
+    <!-- Campo para subir una o más imágenes -->
+    <label for="images">Imágenes</label>
+    <input type="file" id="images" multiple>
+
+    <!-- Botón para enviar el formulario -->
+    <button type="submit" class="add-product-button">Publicar</button>
+  </form>
+</div>
+{% endblock %}
+<!-- Cierre del bloque de contenido que será insertado en base.html -->

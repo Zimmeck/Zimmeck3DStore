@@ -1,0 +1,116 @@
+<body>
+  <!-- Barra superior con los enlaces de contacto y redes sociales -->
+  <div class="top-bar">
+    <div class="top-info">
+      <!-- Enlaces a Contacto y envios -->
+      <a href="#" class="top-link">Contacto</a>
+      <span class="separator">|</span>
+      <a href="#" class="top-link">Envíos</a>
+    </div>
+
+    <!-- Iconos sociales con enlaces a instagram y tiktok -->
+    <div class="social-icons">
+      <a href="https://instagram.com" target="_blank">
+        <img class="social-logo" src="{{ url_for('static', filename='img/InstagramBlanco.png') }}" alt="Instagram">
+      </a>
+      <a href="https://tiktok.com" target="_blank">
+        <img class="social-logo" src="{{ url_for('static', filename='img/TiktokBlanco.png') }}" alt="TikTok">
+      </a>
+    </div>
+  </div>
+
+  <!-- Encabezado principal: logo, búsqueda y usuario -->
+  <div class="header-container">
+    <!-- Logo que redirige al home -->
+    <a href="{{url_for('home')}}" class="logo">Zimmeck 3D</a>
+
+    <!-- Buscador aun no hace nada -->
+    <div class="search-container">
+      <input type="text" placeholder="Buscar..." class="search-input">
+      <img src="{{ url_for('static', filename='img/SearchIcon.png') }}" alt="Buscar" class="search-icon">
+    </div>
+
+    <!-- Usuario y carrito -->
+    <div class="user">
+      <!-- Icono de usuario que lleva al login -->
+      <a href="{{ url_for('login') }}">
+        <img src="{{ url_for('static', filename='img/usuario-amarillo.png') }}" alt="Usuario">
+      </a>
+      <span class="separator">|</span>
+
+      <!-- Icono del carrito con contador de productos y enlace a la pagina carrito -->
+      <div class="carrito-icon-wrapper">
+        <a href="{{ url_for('carrito') }}">
+          <img src="{{ url_for('static', filename='img/CarritoIcon.png') }}" alt="Carrito" class="cart-icon">
+
+          <!-- Calculamos la cantidad total de productos en el carrito desde la sesión (esto actualmente no se ve por culpa del css ya lo arreglare)-->
+          {% set total_cantidad = 0 %}
+          {% for item in session.get("carrito", []) %}
+            {% if item.cantidad is defined %}
+              {% set total_cantidad = total_cantidad + item.cantidad %}
+            {% else %}
+              {% set total_cantidad = total_cantidad + 1 %}
+            {% endif %}
+          {% endfor %}
+
+          <!-- Si hay productos, mostramos el número encima del icono -->
+          {% if total_cantidad > 0 %}
+            <span class="carrito-contador">{{ total_cantidad }}</span>
+          {% endif %}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón de menú hamburguesa para pantallas móviles -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Barra de navegación principal -->
+  <div class="nav-bar" id="navBar">
+    <a href="{{url_for('home')}}">Inicio</a>
+    <a href="{{url_for('categories')}}">Últimas Novedades</a>
+
+    <!-- Menú desplegable de categorías -->
+    <div class="dropdown">
+      <a href="{{url_for('categories')}}">Categorías
+        <img class="flecha" src="{{ url_for('static', filename='img/ArrowDown.png') }}" alt="flecha">
+      </a>
+      <div class="dropdown-content">
+        <!-- Columna de categorías de Anime -->
+        <div class="dropdown-column">
+          <strong>Anime</strong>
+          <a href="{{ url_for('show_category', name='naruto') }}">Naruto</a>
+          <a href="{{ url_for('show_category', name='one-piece') }}">One Piece</a>
+        </div>
+
+        <!-- Columna de categorías de Películas -->
+        <div class="dropdown-column">
+          <strong>Películas</strong>
+          <a href="{{ url_for('show_category', name='300') }}">300</a>
+          <a href="{{ url_for('show_category', name='star-wars') }}">Star Wars</a>
+          <a href="{{ url_for('show_category', name='lotr') }}">LOTR</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resto de enlaces del menú -->
+    <a href="{{url_for('aboutme')}}">About</a>
+    <a href="{{url_for('blog')}}">Blog</a>
+    <a href="{{url_for('comission')}}">Encargos</a>
+  </div>
+
+  <!-- Script para abrir y cerrar el menú hamburguesa en móvil -->
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navBar = document.getElementById("navBar");
+
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("open");
+      navBar.classList.toggle("show");
+    });
+  </script>
+</body>

@@ -1,0 +1,29 @@
+{% extends 'Base.html' %}
+
+{% block title %}Encargos-Zimmeck3D {% endblock %}
+
+{% block content %}
+<body>
+    <div class="form-container">
+      <div class="form-card">
+        <h2>Encargos</h2>
+        <form action="/encargo" method="post" enctype="multipart/form-data">
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" name="titulo" placeholder="Título" required>
+
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" placeholder="correo electrónico" required>
+
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" name="descripcion" placeholder="Descripción" rows="4" required></textarea>
+
+          <label for="imagenes">Imágenes</label>
+          <input type="file" id="imagenes" name="imagenes" multiple>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+</body>
+{% endblock %}
+<!-- Cierre del bloque de contenido que será insertado en base.html -->

@@ -1,0 +1,59 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.form-card {
+  max-width: 320px;
+  width: 100%;
+  text-align: center;
+}
+
+.form-card h2 {
+  color: #f4c215;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.form-card label {
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  color: #f4c215;
+  margin-bottom: 5px;
+}
+
+.form-card input[type="text"],
+.form-card input[type="email"],
+.form-card textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
+.form-card textarea {
+  resize: vertical;
+}
+
+.form-card input[type="file"] {
+  margin-bottom: 20px;
+}
+
+.form-card button {
+  background: #f4c215;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form-card button:hover {
+  background: #f9500e;
+}

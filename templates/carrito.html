@@ -1,0 +1,54 @@
+{% extends 'Base.html' %}<!-- Heredamos de la platilla base.html asi como el titulo -->
+
+{% block title %}Carrito-Zimmeck3D{% endblock %}<!-- Sustituimos el title por Zimmeck3D -->
+
+{% block content %}<!--Sustituimos el contento por lo que escribamos -->
+
+<section class="carrito-section">
+    <h1 class="carrito-title">Tu Carrito</h1>
+
+    <!-- Comprueba si hay productos en el carrito -->
+    {% if productos %}
+
+    <!-- Muestra los productos usando grid-->
+    <div class="carrito-grid">
+        {% for producto in productos %}
+        <div class="carrito-item">
+            <!-- Imagen del producto -->
+            <img src="{{ url_for('static', filename=producto.imagen_url_producto) }}" alt="{{ producto.nombre_producto }}">
+
+            <!-- Información del producto -->
+            <div class="carrito-info">
+                <h3>{{ producto.nombre_producto }}</h3>
+                <p>Precio: {{ producto.precio|default("0.00") }} €</p>
+                <p>Cantidad: {{ producto.cantidad }}</p>
+                <p>Subtotal: {{ "%.2f"|format(producto.precio * producto.cantidad) }} €</p>
+
+                <!-- Botón para eliminar el producto del carrito -->
+                <a href="{{ url_for('eliminar_producto_carrito', id_producto=producto.id_producto) }}">
+                    <button class="cartfinish danger">Eliminar</button>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Total de precio y productos-->
+    <div class="carrito-totales">
+        <p><strong>Total productos:</strong> {{ total_productos }}</p>
+        <p><strong>Total estimado:</strong> {{ "%.2f"|format(total_precio) }} €</p>
+    </div>
+
+    <!-- Botón para finalizar el pedido -->
+    <a href="{{ url_for('finalizar_pedido') }}">
+        <button class="cartfinish finalizar">Finalizar Pedido</button>
+    </a>
+
+    {% else %}
+    <!-- Si no hay productos, se muestra un mensaje -->
+    <p class="carrito-empty">Tu carrito está vacío.</p>
+    {% endif %}
+</section>
+
+{% endblock %}
+<!-- Cierre del bloque de contenido que será insertado en base.html -->

@@ -1,0 +1,128 @@
+/* ==== RESET GENERAL ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
+/* ==== ESCONDER SCROLL Y MOSTRAR AL USAR RUEDA ==== */
+body {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+/* ==== FOOTER ==== */
+.footer {
+  background-color: #f9500e;
+  color: white;
+  padding: 20px 20px 20px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  position: relative;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  border-bottom: 2px solid #fff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section a {
+  margin-bottom: 6px;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+
+/* Input y botón */
+.subscribe-input {
+  padding: 10px;
+  margin-top: 10px;
+  width: 90%;
+  border: none;
+  border-radius: 4px;
+}
+
+.subscribe-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: white;
+  color: #f9500e;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.subscribe-button:hover {
+  background-color: #f4c215;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+
+.footer-bottom {
+  border-top: 1px solid #fff;
+  margin-top: 30px;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.footer-links a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-language select {
+  padding: 5px;
+  border-radius: 4px;
+  border: none;
+}
+
+.footer-copy {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 20px;
+  opacity: 0.8;
+}

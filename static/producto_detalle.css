@@ -1,0 +1,122 @@
+.categoria-listado {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.categoria-titulo {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.producto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* Botón de finalizar compra */
+.finalizar {
+  margin-top: 20px;
+  background-color: #2c7a7b;
+  color: white;
+}
+
+.finalizar:hover {
+  background-color: #225e61;
+  transform: scale(1.05);
+}
+
+.producto-detalle-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.volver-link {
+  display: block;
+  margin-bottom: 20px;
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.producto-detalle-box {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.producto-img img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.producto-info {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.producto-info h2 {
+  color: #f4c215;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.producto-info .descripcion {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.producto-info .precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.cartfinish {
+  background-color: #f4c215;
+  color: #222;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.cartfinish:hover {
+  background-color: #e0b813;
+}
+
+
+.add-product-button {
+  background: #f4c215;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 60px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.add-product-button:hover {
+  background: #f9500e;
+}

@@ -1,0 +1,71 @@
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  margin-left: auto;
+  padding: 10px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #f4c215;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animación del icono abierto */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive nav */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background-color: #f9500e;
+    width: 220px;
+    padding: 20px;
+    border-radius: 8px;
+    display: none;
+    z-index: 10;
+  }
+
+  .nav-bar a {
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .nav-bar.show {
+    display: flex;
+  }
+
+  /* Asegurar dropdown dentro del menú móvil */
+  .dropdown-content {
+    position: static;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    display: none;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+  }
+}

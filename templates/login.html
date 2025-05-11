@@ -1,0 +1,58 @@
+{% extends 'Base.html' %}<!-- Heredamos de la platilla base.html asi como el titulo -->
+
+{% block title %} Login-Zimmeck3D {% endblock %}<!-- Sustituimos el title por Zimmeck3D -->
+
+{% block content %}<!--Sustituimos el contento por lo que escribamos -->
+
+<!-- Contenedor principal que agrupa ambos formularios -->
+<div class="auth-container">
+  <form class="auth-form" action="{{ url_for('login') }}" method="post">
+    <h2>Iniciar Sesión</h2>
+
+    <!-- Campo para ingresar el email -->
+    <label for="login-email">Correo electrónico</label>
+    <input type="text" id="login-email" name="login-email" placeholder="Correo electrónico..." required>
+
+    <!-- Campo para ingresar la contraseña -->
+    <label for="login-password">Contraseña</label>
+    <input type="password" id="login-password" name="login-password" placeholder="Contraseña..." required>
+
+    <!-- Opciones adicionales del login -->
+    <div class="options">
+      <!-- Enlace para recuperar contraseña (aun  no funciona) -->
+      <a href="#">¿Olvidaste la contraseña?</a>
+
+      <!-- Mantener sesion iniciada (aun no funciona) -->
+      <div class="remember">
+        <input type="checkbox" id="remember">
+        <label for="remember">Recuérdame</label>
+      </div>
+    </div>
+
+    <!-- Botón de envío del formulario-->
+    <button type="submit">Iniciar sesión</button>
+  </form>
+
+  <form class="auth-form" action="{{ url_for('register') }}" method="post">
+    <h2>Registrar</h2>
+
+    <!-- Campo para ingresar el correo del nuevo usuario -->
+    <label for="register-email">Correo electrónico</label>
+    <input type="text" id="register-email" name="register-email" placeholder="Correo electrónico..." required>
+
+    <!-- Contraseña -->
+    <label for="register-password">Contraseña</label>
+    <input type="password" id="register-password" name="register-password" placeholder="Contraseña..." required>
+
+    <!-- Confirmación de contraseña -->
+    <label for="confirm-password">Confirmar contraseña</label>
+    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmar contraseña..." required>
+
+    <!-- Botón de envío del formulario de registro -->
+    <button type="submit">Registrarse</button>
+  </form>
+
+</div>
+
+{% endblock %}
+<!-- Cierre del bloque de contenido que será insertado en base.html -->

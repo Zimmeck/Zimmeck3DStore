@@ -1,0 +1,47 @@
+{% extends 'base.html' %}<!-- Heredamos de la platilla base.html asi como el titulo -->
+
+{% block title %}{{ producto.nombre_producto }} - Zimmeck3D{% endblock %}<!-- Sustituimos el title por Zimmeck3D y por el nombre del producto en concreto-->
+
+{% block content %}<!--Sustituimos el contento por lo que escribamos -->
+
+<div class="producto-detalle-container">
+
+  <!-- Enlace para volver a la categoría anterior desde la que se llegó -->
+  <a class="volver-link" href="{{ url_for('show_category', name=categoria) }}">
+    ← Volver a {{ categoria|capitalize }}
+  </a>
+
+  <div class="producto-detalle-box">
+
+    <div class="producto-img">
+      {% if producto.imagen_url_producto %}
+        <!-- Si el producto tiene imagen, la muestra -->
+        <img src="{{ url_for('static', filename=producto.imagen_url_producto) }}" alt="{{ producto.nombre_producto }}">
+      {% else %}
+        <!-- Si no tiene imagen, muestra una imagen por defecto -->
+        <img src="{{ url_for('static', filename='img/default-product.png') }}" alt="Sin imagen">
+      {% endif %}
+    </div>
+    <div class="producto-info">
+      <!-- Nombre del producto -->
+      <h2>{{ producto.nombre_producto }}</h2>
+
+      <!-- Descripción del producto -->
+      <p class="descripcion">{{ producto.descripcion }}</p>
+
+      <!-- Precio del producto -->
+      <p class="precio">Precio: {{ producto.precio }} €</p>
+
+      <!-- Formulario para agregar el producto al carrito -->
+      <form action="{{ url_for('agregar_carrito') }}" method="post">
+        <!-- Campo oculto con el ID del producto -->
+        <input type="hidden" name="id_producto" value="{{ producto.id_producto }}">
+        <!-- Botón de envío -->
+        <button type="submit" class="cartfinish">Añadir al carrito</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+<!-- Cierre del bloque de contenido que será insertado en base.html -->

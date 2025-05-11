@@ -1,0 +1,38 @@
+{% extends 'Base.html' %}<!-- Heredamos de la platilla base.html asi como el titulo -->
+
+{% block title %} Zimmeck3D {% endblock %}<!-- Sustituimos el title por Zimmeck3D -->
+
+{% block content %}<!--Sustituimos el contento por lo que escribamos -->
+<!-- Sección de fotos de productos -->
+<div class="image-section">
+  <img src="{{ url_for('static', filename='img/Imagen3.png') }}" alt="Fotos de productos">
+  <h2 class="highlight-title">Explora Nuestros Productos</h2>
+</div>
+
+<!-- Sección Instagram -->
+<div class="image-section">
+  <img src="{{ url_for('static', filename='img/ImageIndex.jpg') }}" alt="Instagram">
+  <h2 class="highlight-title"> Únete y obtén un 10% de descuento en tu primer pedido</h2>
+</div>
+
+<!-- Fotos publicaciones Instagram -->
+<div class="image-section">
+  <img src="{{ url_for('static', filename='img/Imagen2.png') }}" alt="Publicaciones Instagram">
+  <h2 class="highlight-title">Síguenos en Instagram</h2>
+</div>
+
+<!-- Sección categorías -->
+<div class="categories-section">
+  <!-- Llamamos a la funcion de show_category para que al pulsar nos lleva a la pagina de categoria -->
+  <a href="{{ url_for('show_category', name='naruto') }}" class="category-card" style="background-image: url('{{ url_for('static', filename='img/NarutoCard.jpg') }}');">
+    <span>Naruto</span>
+  </a>
+  <a href="{{ url_for('show_category', name='lotr') }}" class="category-card" style="background-image: url('{{ url_for('static', filename='img/LOTRCard.png') }}');">
+    <span>LOTR</span>
+  </a>
+  <a href="{{ url_for('show_category', name='star-wars') }}" class="category-card" style="background-image: url('{{ url_for('static', filename='img/starwarsCard.jpg') }}');">
+    <span>Disney</span>
+  </a>
+</div>
+{% endblock %}
+<!-- Cierre del bloque de contenido que será insertado en base.html -->
